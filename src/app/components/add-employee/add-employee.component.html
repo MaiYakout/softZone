@@ -1,0 +1,67 @@
+<form [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit()">
+  <div class="formgroup my-3">
+    <label for="name" class="form-label fw-bold">Name</label>
+    <input
+      type="text"
+      class="form-control d-inline-flex w-auto ml-2"
+      id="name"
+      formControlName="name"
+    />
+    <div *ngIf="f['name'].touched && f['name'].errors" class="validationText">
+      <div *ngIf="f['name'].errors?.['required']">Name is required</div>
+    </div>
+  </div>
+  <div class="formgroup my-3">
+    <label for="email" class="form-label fw-bold">Email</label>
+    <input
+      type="email"
+      class="form-control d-inline-flex w-auto ml-2"
+      id="email"
+      formControlName="email"
+    />
+    <div *ngIf="f['email'].touched && f['email'].errors" class="validationText">
+      <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+      <div *ngIf="f['email'].errors?.['email']">
+        Email must be a valid email address
+      </div>
+    </div>
+  </div>
+  <div class="formgroup my-3">
+    <label for="address" class="form-label fw-bold">Address</label>
+    <input
+      type="text"
+      class="form-control d-inline-flex w-auto ml-2"
+      id="address"
+      formControlName="address"
+    />
+    <div
+      *ngIf="f['address'].touched && f['address'].errors"
+      class="validationText"
+    >
+      <div *ngIf="f['address'].errors?.['required']">address is required</div>
+    </div>
+  </div>
+  <div class="formgroup my-3">
+    <label for="phone" class="form-label fw-bold">Phone</label>
+    <input
+      type="text"
+      class="form-control d-inline-flex w-auto ml-2"
+      id="phone"
+      formControlName="phone"
+    />
+    <div *ngIf="f['phone'].touched && f['phone'].errors" class="validationText">
+      <div *ngIf="f['phone'].errors?.['required']">Phone is required</div>
+      <div *ngIf="f['phone'].errors?.['pattern']">
+        phone must be 11 numbers & start with 010 012 011
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="button">Cancel</button>
+  <button
+    class="btn btn-success"
+    type="submit"
+    [disabled]="!addEmployeeForm.valid"
+  >
+    Add
+  </button>
+</form>

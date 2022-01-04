@@ -1,0 +1,39 @@
+@import "../../styles/colors";
+.employee {
+  &-toolbar {
+    background-color: $darkBlue;
+    color: white;
+    .p-toolbar {
+      background-color: $darkBlue !important;
+    }
+    &-button-danger {
+      background-color: #dc3545;
+      padding: 10px;
+      opacity: 1;
+      margin-right: 10px;
+    }
+    &-button-success {
+      background-color: $green;
+      padding: 10px;
+      opacity: 1;
+    }
+  }
+  &-body {
+    &-button-edit {
+      color: $yellow;
+      background: none;
+      border: none;
+    }
+    &-button-delete {
+      color: $red;
+      background: none;
+      border: none;
+    }
+  }
+  .p-paginator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+}
